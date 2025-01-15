@@ -1,0 +1,85 @@
+.project-switcher {
+
+   &__trigger {
+
+      &[data-state="open"] {
+         background-color: hsl(var(--color-sidebar-accent));
+         color: hsl(var(--color-sidebar-accent-foreground));
+      }
+   }
+
+   &__trigger-icon {
+      --icon-size: var(--size-1);
+      align-items: center;
+      aspect-ratio: var(--ratio-square);
+      background-color: hsl(var(--color-sidebar-primary));
+      block-size: var(--size-3);
+      border-radius: var(--radius-3);
+      color: hsl(var(--color-sidebar-primary-foreground));
+      display: flex;
+      inline-size: var(--size-3);
+      justify-content: center;
+   }
+
+   &__trigger-title {
+      display: grid;
+      flex: 1 1 0%;
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-semibold);
+      line-height: var(--leading-tight);
+      overflow: hidden;
+      text-align: start;
+      text-overflow: ellipsis;
+      text-wrap: balance;
+      white-space: nowrap;
+   }
+
+   &__trigger-icon-caret {
+      margin-inline-start: auto;
+   }
+
+   &__dialog {
+      border-radius: var(--radius-5);
+      inline-size: var(--radix-dropdown-menu-trigger-width, var(--size-fluid-8));
+      min-inline-size: var(--size-fluid-8);
+   }
+
+   &__dialog-separator {
+      margin-block-end: var(--shim-4);
+   }
+
+   &__dialog-label {
+      color: hsl(var(--color-muted-foreground));
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-semibold);
+      margin: 0;
+      padding-block: var(--shim-4);
+      padding-inline: var(--shim-5);
+      text-decoration: none;
+   }
+
+   &__dialog-item {
+      gap: var(--shim-5);
+      padding: var(--shim-5);
+
+      &:hover {
+         cursor: pointer;
+      }
+   }
+
+   &__dialog-item-icon {
+      align-items: center;
+      block-size: var(--size-2);
+      border-radius: var(--radius-2);
+      border: var(--border-size-1) solid hsl(var(--color-border));
+      display: flex;
+      flex-shrink: 0;
+      inline-size: var(--size-2);
+      justify-content: center;
+   }
+
+   &__dialog-item-icon-svg {
+      --icon-size: var(--size-1);
+      flex-shrink: 0;
+   }
+}

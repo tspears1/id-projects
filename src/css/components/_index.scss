@@ -1,0 +1,27 @@
+@use 'sass:meta';
+@layer ui, atoms, molecules, organisms;
+
+@layer ui {
+   @layer breadcrumbs { @include meta.load-css('../../js/components/ui/Breadcrumbs/Breadcrumbs.style.scss'); }
+   @layer button { @include meta.load-css('../../js/components/ui/Button/Button.style.scss'); }
+   @layer dropdownMenu { @include meta.load-css('../../js/components/ui/DropdownMenu/DropdownMenu.style.scss'); }
+   @layer separator { @include meta.load-css('../../js/components/ui/Separator/Separator.style.scss'); }
+   @layer sidebar { @include meta.load-css('../../js/components/ui/Sidebar/Sidebar.style.scss'); }
+   @layer skeleton { @include meta.load-css('../../js/components/ui/Skeleton/Skeleton.style.scss'); }
+   @layer theme-toggle { @include meta.load-css('../../js/components/ui/ThemeToggle/ThemeToggle.style.scss'); }
+   @layer tooltip { @include meta.load-css('../../js/components/ui/Tooltip/Tooltip.style.scss'); }
+}
+
+@layer atoms {
+   @layer brand { @include meta.load-css('../../js/components/atoms/Brand/Brand.style.scss'); }
+   @layer icon { @include meta.load-css('../../js/components/atoms/Icon/Icon.style.scss'); }
+}
+
+@layer molecules {
+   @layer project-switcher { @include meta.load-css('../../js/components/molecules/ProjectSwitcher/ProjectSwitcher.style.scss'); }
+}
+
+@layer organisms {
+   @layer app-sidebar { @include meta.load-css('../../js/components/organisms/AppSidebar/AppSidebar.style.scss'); }
+   @layer toolbar { @include meta.load-css('../../js/components/organisms/Toolbar/Toolbar.style.scss'); }
+}

@@ -1,0 +1,14 @@
+.toolbar {
+   background: hsl(var(--color-surface-1));
+   color: hsl(var(--color-text-1));
+   padding-block: var(--shim-5);
+   padding-inline: var(--shim-5);
+   position: relative;
+}
+
+.toolbar__container{
+   align-items: center;
+   display: grid;
+   grid-template-columns: auto auto 1fr auto;
+   gap: var(--shim-5);
+}
