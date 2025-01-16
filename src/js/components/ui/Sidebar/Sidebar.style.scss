@@ -1,6 +1,11 @@
 @use '../../../../css/abstracts/mixins/breakpoints' as mq;
 
 .sidebar {
+   --sidebar-scale-size-0:                     calc(var(--sidebar-inline-size-icon) / 6); // padding, default 0.5rem
+   --sidebar-scale-size-1:                     calc(var(--sidebar-inline-size-icon) / 3); // icon, default 1rem
+   --sidebar-scale-size-2:                     calc(var(--sidebar-inline-size-icon) / 2); // button, default 2rem
+   --sidebar-scale-size-3:                     var(--sidebar-inline-size-icon);           // container, default 3rem
+
    --_sidebar-transition-duration:             var(--sidebar-transition-duration, var(--duration-moderate));
    --_sidebar-transition-easing:               var(--sidebar-transition-easing, var(--ease-spring-2));
 
@@ -245,21 +250,21 @@
 :is(.sidebar__header, .sidebar__footer) {
    display: flex;
    flex-direction: column;
-   gap: var(--shim-5);
-   padding: var(--shim-5);
+   gap: var(--sidebar-scale-size-0);
+   padding: var(--sidebar-scale-size-0);
 }
 
 .sidebar__separator {
    background-color: hsl(var(--color-sidebar-border));
    inline-size: auto;
-   margin-inline: var(--shim-5);
+   margin-inline: var(--sidebar-scale-size-0);
 }
 
 .sidebar__content {
    display: flex;
    flex-direction: column;
    flex: 1 1 0;
-   gap: var(--shim-5);
+   gap: var(--sidebar-scale-size-0);
    min-block-size: 0;
    overflow: auto;
 
@@ -269,10 +274,11 @@
 }
 
 .sidebar--has-icon {
+   --icon-size: var(--sidebar-scale-size-1);
    & > svg {
-      block-size: var(--size-1);
+      block-size: var(--sidebar-scale-size-1);
       flex-shrink: 0;
-      inline-size: var(--size-1);
+      inline-size: var(--sidebar-scale-size-1);
    }
 }
 
@@ -281,7 +287,7 @@
    flex-direction: column;
    inline-size: 100%;
    min-inline-size: 0;
-   padding: var(--shim-5);
+   padding: var(--sidebar-scale-size-0);
    position: relative;
 }
 
@@ -296,17 +302,17 @@
    font-weight: var(--font-weight-medium);
    outline-color: hsl(var(--color-sidebar-ring));
    outline: none;
-   padding-inline: var(--shim-5);
+   padding-inline: var(--sidebar-scale-size-0);
    transition:
       margin var(--_sidebar-transition-duration) var(--_sidebar-transition-easing),
       opacity var(--_sidebar-transition-duration) var(--_sidebar-transition-easing);
 
    &:focus-visible {
-      outline-width: var(--shim-5);
+      outline-width: var(--sidebar-scale-size-0);
    }
 
    [data-collapsible='icon'] & {
-      margin-block-start: var(--size-3);
+      margin-block-start: calc(var(--size-3) * -1);
       opacity: 0;
    }
 }
@@ -364,12 +370,11 @@
    color: var(--sidebar-menu-button-color, inherit);
    display: flex;
    font-size: var(--sidebar-menu-button-font-size, var(--font-size-sm));
-   gap: var(--shim-5);
+   gap: var(--sidebar-scale-size-0);
    inline-size: var(--sidebar-menu-button-inline-size, 100%);
    overflow: hidden;
-   padding-block: var(--sidebar-menu-button-padding-block, var(--shim-5));
-   padding-inline-start: var(--sidebar-menu-button-padding-inline-start, var(--shim-5));
-   padding-inline-end: var(--sidebar-menu-button-padding-inline-end, var(--shim-5));
+   padding-block: var(--sidebar-menu-button-padding-block, var(--sidebar-scale-size-0));
+   padding-inline: var(--sidebar-menu-button-padding-inline, var(--sidebar-scale-size-0));
    text-align: start;
    transition:
       block-size var(--_sidebar-transition-duration) var(--_sidebar-transition-easing),
@@ -421,19 +426,18 @@
    }
 
    &[data-size='lg'] {
-      --sidebar-menu-button-block-size: var(--size-5);
+      --sidebar-menu-button-block-size: var(--sidebar-inline-size-icon);
    }
 
    [data-collapsible='icon'] & {
-      --sidebar-menu-button-block-size: var(--size-3);
-      --sidebar-menu-button-inline-size: var(--size-3);
-      --sidebar-menu-button-padding-inline-start: var(--shim-5);
-      --sidebar-menu-button-padding-inline-end: var(--shim-5);
+      --sidebar-menu-button-block-size: var(--sidebar-scale-size-2);
+      --sidebar-menu-button-inline-size: var(--sidebar-scale-size-2);
 
       &[data-size='lg'] {
+         --sidebar-menu-button-block-size: var(--sidebar-scale-size-3);
+         --sidebar-menu-button-inline-size: var(--sidebar-scale-size-3);
          --sidebar-menu-button-padding-block: 0;
-         --sidebar-menu-button-padding-inline-start: 0;
-         --sidebar-menu-button-padding-inline-end: 0;
+         --sidebar-menu-button-padding-inline: 0;
       }
    }
 
@@ -584,10 +588,10 @@
    border-radius: var(--radius-3);
    color: hsl(var(--color-sidebar-foreground));
    display: flex;
-   gap: var(--shim-5);
+   gap: var(--sidebar-scale-size-0);
    min-inline-size: 0;
    overflow: hidden;
-   padding-inline: var(--shim-5);
+   padding-inline: var(--sidebar-scale-size-0);
    translate: -1px;
 
    &:is(:hover, :active, [data-active='true']) {
