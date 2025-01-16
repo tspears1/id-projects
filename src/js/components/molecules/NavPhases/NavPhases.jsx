@@ -41,18 +41,16 @@ const NavPhases = ({ phases, ...props }) => {
                   <SidebarMenuButton
                      onClick={() => handleClick(phase)}
                      className="nav-phases__menu-button"
-                     size="lg"
-                     variant="ghost"
                      isActive={activePhase?.value === phase.value}
                      data-phase={phase.value}
+                     tooltip={phase.label}
                   >
-                     { phase.icon && <Icon icon={phase.icon} className="nav-phases__menu-button-icon" /> }
-                     <div className="nav-phases__menu-button-label">
-                        {phase.label}
-                     </div>
+                     { phase.icon && <Icon icon={phase.icon} className="nav-phases__menu-button-icon sidebar--has-icon" /> }
+                     <span>{phase.label}</span>
                   </SidebarMenuButton>
                </SidebarMenuItem>
             ))}
+            {/* TODO: Add tooltip to phases. */}
          </SidebarMenu>
       </SidebarGroup>
    )
