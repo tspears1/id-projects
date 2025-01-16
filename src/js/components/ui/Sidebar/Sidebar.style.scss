@@ -374,9 +374,12 @@
 }
 
 .sidebar__menu-button {
+   --sidebar-menu-button-background-color--hover: hsl(var(--color-sidebar-accent) / 1);
+   --sidebar-menu-button-color--hover: hsl(var(--color-sidebar-accent-foreground));
    align-items: center;
-   background-color: var(--sidebar-menu-button-background-color, transparent);
+   background-color: var(--sidebar-menu-button-background-color, hsl(var(--color-sidebar-accent) / 0));
    block-size: var(--sidebar-menu-button-block-size, var(--sidebar-inline-size-icon));
+   border: var(--border-size-1) solid var(--sidebar-menu-button-border-color,transparent);
    border-radius: var(--radius-3);
    color: var(--sidebar-menu-button-color, inherit);
    display: flex;
@@ -388,7 +391,10 @@
    padding-inline: var(--sidebar-menu-button-padding-inline, var(--sidebar-scale-size-0));
    text-align: start;
    transition:
+      background-color var(--duration-quick) var(--ease-in-out-2),
       block-size var(--_sidebar-transition-duration) var(--_sidebar-transition-easing),
+      border-color var(--duration-quick) var(--ease-in-out-2),
+      color var(--duration-quick) var(--ease-in-out-2),
       inline-size var(--_sidebar-transition-duration) var(--_sidebar-transition-easing),
       padding var(--_sidebar-transition-duration) var(--_sidebar-transition-easing);
 
@@ -403,8 +409,8 @@
       [data-state='open']:hover,
       [data-variant='outline']:hover
    ) {
-      --sidebar-menu-button-background-color: hsl(var(--color-sidebar-accent));
-      --sidebar-menu-button-color: hsl(var(--color-sidebar-accent-foreground));
+      background-color: var(--sidebar-menu-button-background-color--hover);
+      color: var(--sidebar-menu-button-color--hover);
    }
 
    &:is(:disabled, [aria-disabled='true']) {
@@ -446,16 +452,18 @@
 
       &[data-size='lg'] {
          --sidebar-menu-button-block-size: var(--sidebar-scale-size-3);
-         //--sidebar-menu-button-inline-size: var(--sidebar-scale-size-3);
          --sidebar-menu-button-padding-block: 0;
          --sidebar-menu-button-padding-inline: 0;
-
-         &:hover {
-            --sidebar-menu-button-background-color: transparent;
-         }
+         --sidebar-menu-button-background-color--hover: transparent;
       }
    }
 
+   input:is([type='radio'], [type='checkbox']) {
+      appearance: none;
+      inset: 0;
+      pointer-events: none;
+      position: absolute;
+   }
 }
 
 .sidebar__menu-action {

@@ -39,14 +39,27 @@ const NavPhases = ({ phases, ...props }) => {
                   key={phase.value}
                >
                   <SidebarMenuButton
-                     onClick={() => handleClick(phase)}
                      className="nav-phases__menu-button"
                      isActive={activePhase?.value === phase.value}
                      data-phase={phase.value}
                      tooltip={phase.label}
+                     asChild
                   >
-                     { phase.icon && <Icon icon={phase.icon} className="nav-phases__menu-button-icon sidebar--has-icon" /> }
-                     <span>{phase.label}</span>
+                     <label className="nav-phases__menu-button-label">
+                        <input
+                           type="radio"
+                           name="phases"
+                           value={phase.value}
+                           className="nav-phases__menu-button-input focus-visible-ring"
+                           checked={activePhase?.value === phase.value}
+                           onChange={() => setActivePhase(phase)}
+                        />
+                        { phase.icon && <Icon icon={phase.icon} className="nav-phases__menu-button-icon" /> }
+                        <span>{phase.label}</span>
+                        <div className="nav-phases__menu-button-radio-icon">
+                           <Icon icon='circle' weight='bold' />
+                        </div>
+                     </label>
                   </SidebarMenuButton>
                </SidebarMenuItem>
             ))}

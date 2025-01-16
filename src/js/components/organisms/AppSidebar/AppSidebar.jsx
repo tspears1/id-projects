@@ -7,7 +7,8 @@ import {
    SidebarContent,
    SidebarFooter,
    SidebarHeader,
-   SidebarRail
+   SidebarRail,
+   SidebarSeparator,
 } from "../../ui/Sidebar/Sidebar.jsx"
 import { ProjectSwitcher } from "../../molecules/ProjectSwitcher/ProjectSwitcher.jsx";
 import { NavPhases } from "../../molecules/NavPhases/NavPhases.jsx";
@@ -34,7 +35,8 @@ const AppSidebar = ({ ...props }) => {
             <SidebarContent>
                { taxonomy && <NavPhases phases={taxonomy?.phases} /> }
             </SidebarContent>
-            <SidebarFooter>
+            <SidebarSeparator />
+            <SidebarFooter className="app-sidebar__footer">
                <div style={{ fontSize: 'var(--font-size-xs)'}}>&copy; {org?.brand} {new Date().getFullYear()}</div>
             </SidebarFooter>
             <SidebarRail />

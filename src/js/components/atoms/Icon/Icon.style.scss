@@ -9,5 +9,6 @@
     color: var(--icon-color, currentColor);
     inline-size: 100%;
     object-fit: contain;
+    transition: color var(--icon-duration, var(--duration-quick)) var(--icon-ease, var(--ease-in-out-2));
   }
 }

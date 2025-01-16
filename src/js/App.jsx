@@ -33,7 +33,7 @@ const App = () => {
               <div className="site-content">
                 <Toolbar />
                 <main className="site-main">
-                  <div>Main</div>
+
                 </main>
               </div>
             </SidebarInset>

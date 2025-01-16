@@ -1,0 +1,16 @@
+.app-sidebar {
+   &__footer {
+      font-size: var(--font-size-xs);
+      opacity: var(--sidebar-footer-opacity, 1);
+      overflow: hidden;
+      padding-block: var(--sidebar-scale-size-1);
+      padding-inline: var(--sidebar-scale-size-0);
+      text-overflow: ellipsis;
+      transition: opacity var(--duration-quick) var(--ease-out-1);
+      white-space: nowrap;
+   }
+}
+
+.sidebar[data-collapsible='icon'] {
+   --sidebar-footer-opacity: 0;
+}

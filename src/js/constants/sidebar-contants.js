@@ -1,8 +1,8 @@
 const SIDEBAR_COOKIE_NAME = "sidebar:state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
-const SIDEBAR_INLINE_SIZE = "18rem";
-const SIDEBAR_INLINE_SIZE_MOBILE = "18rem";
-const SIDEBAR_INLINE_SIZE_ICON = "3.75rem";
+const SIDEBAR_INLINE_SIZE = "18rem"; // Default: 16rem
+const SIDEBAR_INLINE_SIZE_MOBILE = "18rem"; // Default: 18rem
+const SIDEBAR_INLINE_SIZE_ICON = "3.75rem"; // Default: 3rem
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
 export {

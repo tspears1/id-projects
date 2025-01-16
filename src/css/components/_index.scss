@@ -18,6 +18,7 @@
 }
 
 @layer molecules {
+   @layer nav-phases { @include meta.load-css('../../js/components/molecules/NavPhases/NavPhases.style.scss'); }
    @layer project-switcher { @include meta.load-css('../../js/components/molecules/ProjectSwitcher/ProjectSwitcher.style.scss'); }
 }
 
