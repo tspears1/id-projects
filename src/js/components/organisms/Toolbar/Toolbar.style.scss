@@ -1,14 +1,19 @@
 .toolbar {
    background: hsl(var(--color-surface-1));
    color: hsl(var(--color-text-1));
-   padding-block: var(--shim-5);
-   padding-inline: var(--shim-5);
+   padding-block: var(--sidebar-scale-size-0);
+   padding-inline: var(--sidebar-scale-size-0);
    position: relative;
 }
 
-.toolbar__container{
+.toolbar__container {
    align-items: center;
    display: grid;
    grid-template-columns: auto auto 1fr auto;
-   gap: var(--shim-5);
+   gap: var(--sidebar-scale-size-0);
+}
+
+.toolbar__trigger {
+   --button-background-color--hover: hsl(var(--color-sidebar-primary) / 0.1);
+   --button-border-color--hover: hsl(var(--color-sidebar-primary) / 0.8);
 }

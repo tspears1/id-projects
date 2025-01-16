@@ -23,7 +23,7 @@ const Toolbar = () => {
   return (
     <header className="toolbar">
       <div className="toolbar__container">
-        <SidebarTrigger />
+        <SidebarTrigger className="toolbar__trigger" />
         <Separator orientation="vertical" />
         <Breadcrumb>
           <BreadcrumbList>

@@ -9,15 +9,14 @@
    }
 
    &__trigger-icon {
-      --icon-size: var(--size-1);
       align-items: center;
       aspect-ratio: var(--ratio-square);
       background-color: hsl(var(--color-sidebar-primary));
-      block-size: var(--size-3);
+      block-size: var(--sidebar-scale-size-2);
       border-radius: var(--radius-3);
       color: hsl(var(--color-sidebar-primary-foreground));
       display: flex;
-      inline-size: var(--size-3);
+      inline-size: var(--sidebar-scale-size-2);
       justify-content: center;
    }
 

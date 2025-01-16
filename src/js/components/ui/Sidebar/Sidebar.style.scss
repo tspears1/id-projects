@@ -1,11 +1,6 @@
 @use '../../../../css/abstracts/mixins/breakpoints' as mq;
 
 .sidebar {
-   --sidebar-scale-size-0:                     calc(var(--sidebar-inline-size-icon) / 6); // padding, default 0.5rem
-   --sidebar-scale-size-1:                     calc(var(--sidebar-inline-size-icon) / 3); // icon, default 1rem
-   --sidebar-scale-size-2:                     calc(var(--sidebar-inline-size-icon) / 2); // button, default 2rem
-   --sidebar-scale-size-3:                     var(--sidebar-inline-size-icon);           // container, default 3rem
-
    --_sidebar-transition-duration:             var(--sidebar-transition-duration, var(--duration-moderate));
    --_sidebar-transition-easing:               var(--sidebar-transition-easing, var(--ease-spring-2));
 
@@ -128,6 +123,11 @@
 }
 
 .sidebar__wrapper {
+   --sidebar-scale-size-0:                     calc(var(--sidebar-inline-size-icon) / 6); // padding, default 0.5rem
+   --sidebar-scale-size-1:                     calc(var(--sidebar-inline-size-icon) / 3); // icon, default 1rem
+   --sidebar-scale-size-2:                     calc(var(--sidebar-inline-size-icon) / 1.5); // button, default 2rem
+   --sidebar-scale-size-3:                     var(--sidebar-inline-size-icon);           // container, default 3rem
+
    border-inline-start: var(--sidebar-wrapper-border-inline-start, none);
    border-inline-end: var(--sidebar-wrapper-border-inline-end, none);
    block-size: var(--sidebar-block-size, 100svh);
@@ -164,8 +164,19 @@
 }
 
 .sidebar__trigger {
-   block-size: var(--sidebar-trigger-size, var(--size-4));
-   inline-size: var(--sidebar-trigger-size, var(--size-4));
+   --button-icon-size: var(--sidebar-scale-size-1);
+   block-size: var(--sidebar-scale-size-3);
+   inline-size: var(--sidebar-scale-size-3);
+}
+
+.sidebar__trigger-icon {
+   aspect-ratio: var(--ratio-square);
+   align-items: center;
+   block-size: var(--sidebar-scale-size-2);
+   border-radius: var(--radius-3);
+   display: flex;
+   inline-size: var(--sidebar-scale-size-2);
+   justify-content: center;
 }
 
 .sidebar__rail {
@@ -435,9 +446,13 @@
 
       &[data-size='lg'] {
          --sidebar-menu-button-block-size: var(--sidebar-scale-size-3);
-         --sidebar-menu-button-inline-size: var(--sidebar-scale-size-3);
+         //--sidebar-menu-button-inline-size: var(--sidebar-scale-size-3);
          --sidebar-menu-button-padding-block: 0;
          --sidebar-menu-button-padding-inline: 0;
+
+         &:hover {
+            --sidebar-menu-button-background-color: transparent;
+         }
       }
    }
 

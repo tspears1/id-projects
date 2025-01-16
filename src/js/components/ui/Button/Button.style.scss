@@ -47,7 +47,10 @@
   white-space: nowrap;
 
   html:where(:not([data-theme-switching])) & {
-    transition: background-color var(--_button-duration) var(--_button-ease);
+    transition:
+      background-color var(--_button-duration) var(--_button-ease),
+      border-color var(--_button-duration) var(--_button-ease),
+      color var(--_button-duration) var(--_button-ease);
   }
 
   &:hover {
