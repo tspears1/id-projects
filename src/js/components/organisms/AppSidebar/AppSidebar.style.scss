@@ -1,10 +1,29 @@
 .app-sidebar {
    &__footer {
+      align-items: center;
+      block-size: var(--sidebar-inline-size-icon);
+      display: flex;
+      flex-direction: row;
+      gap: var(--sidebar-scale-size-0);
+      inline-size: 100%;
+   }
+
+   &__footer-logo {
+      align-items: center;
+      background-color: hsl(var(--color-sidebar-primary) / 0.05);
+      border: var(--border-size-1) solid hsl(var(--color-border));
+      border-radius: var(--radius-2);
+      block-size: var(--sidebar-scale-size-2);
+      display: flex;
+      flex-shrink: 0;
+      inline-size: var(--sidebar-scale-size-2);
+      justify-content: center;
+   }
+
+   &__footer-copy {
       font-size: var(--font-size-xs);
       opacity: var(--sidebar-footer-opacity, 1);
       overflow: hidden;
-      padding-block: var(--sidebar-scale-size-1);
-      padding-inline: var(--sidebar-scale-size-0);
       text-overflow: ellipsis;
       transition: opacity var(--duration-quick) var(--ease-out-1);
       white-space: nowrap;

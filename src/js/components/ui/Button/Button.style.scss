@@ -93,10 +93,9 @@
     --button-border-color--hover: hsl(var(--color-border));
     --button-border-width: var(--border-size-1);
     --button-color: hsl(var(--color-foreground));
-    --button-color--hover: hsl(var(--color-accent-foreground));
-    transition:
-      background-color var(--_button-duration) var(--_button-ease),
-      color var(--_button-duration) var(--_button-ease);
+    --button-color--hover: hsl(var(--color-primary));
+    --button-icon-color: hsl(var(--color-foreground));
+    --button-icon-color--hover: hsl(var(--color-primary));
   }
 
   &[data-variant='secondary'] {

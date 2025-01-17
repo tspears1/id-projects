@@ -1,5 +1,10 @@
 // React ===============================
 import React, { useEffect, useRef } from "react"
+import {
+   Tooltip,
+   TooltipContent,
+   TooltipTrigger,
+} from "../Tooltip/Tooltip.jsx";
 
 /**
  * @component ThemeToggle
@@ -7,7 +12,7 @@ import React, { useEffect, useRef } from "react"
  *
  * @returns {JSX.Element}
  */
-const ThemeToggle = () => {
+const ThemeToggle = ({ tooltip, className = "", ...props }) => {
 
    // Variables -------------------------------
 
@@ -100,16 +105,17 @@ const ThemeToggle = () => {
    }, [])
 
    // Render -------------------------------
-   return (
+   const button = (
       <button
-         className='theme-toggle button'
+         className={`theme-toggle button ${className}`}
          id='theme-toggle'
          title='Toggles light & dark'
          aria-label={ theme.current ?? 'auto' }
          aria-live='polite'
-         data-variant='ghost'
+         data-variant='outline'
          data-size='icon'
          onClick={ handleClick }
+         {...props}
       >
          <svg className='sun-and-moon' aria-hidden='true' width='24' height='24' viewBox='0 0 24 24'>
                <mask className='moon' id='moon-mask'>
@@ -130,6 +136,29 @@ const ThemeToggle = () => {
          </svg>
       </button>
    )
+
+   if (!tooltip) {
+      return button;
+   }
+
+   if (typeof tooltip === "string") {
+      tooltip = {
+         children: tooltip,
+      };
+   }
+
+   return (
+   <Tooltip>
+      <TooltipTrigger asChild>
+         {button}
+      </TooltipTrigger>
+      <TooltipContent
+         side="bottom"
+         align="center"
+         {...tooltip}
+      />
+   </Tooltip>
+   );
 }
 
 ThemeToggle.displayName = "ThemeToggle";

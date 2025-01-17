@@ -37,7 +37,10 @@ const AppSidebar = ({ ...props }) => {
             </SidebarContent>
             <SidebarSeparator />
             <SidebarFooter className="app-sidebar__footer">
-               <div style={{ fontSize: 'var(--font-size-xs)'}}>&copy; {org?.brand} {new Date().getFullYear()}</div>
+               <div className='app-sidebar__footer-logo'>
+
+               </div>
+               <div className='app-sidebar__footer-copy'>&copy; {org?.brand} {new Date().getFullYear()}</div>
             </SidebarFooter>
             <SidebarRail />
          </Sidebar>

@@ -121,6 +121,7 @@ const SidebarTrigger = forwardRef(({ className, onClick, ...props }, ref) => {
       variant="ghost"
       size="icon-xl"
       className={cn("sidebar__trigger", className)}
+      tooltip="Toggle Sidebar"
       onClick={(event) => {
         onClick?.(event);
         toggleSidebar();
@@ -332,6 +333,9 @@ const SidebarMenuButton = forwardRef(({
   variant = "default",
   size = "default",
   tooltip,
+  tooltipPosition = "right",
+  tooltipCollapsedPosition = "right",
+  hidden = null,
   className,
   ...props
 }, ref) => {
@@ -372,9 +376,9 @@ const SidebarMenuButton = forwardRef(({
         {button}
       </TooltipTrigger>
       <TooltipContent
-        side="right"
+        side={state !== "collapsed" ? tooltipPosition : tooltipCollapsedPosition}
         align="center"
-        hidden={state !== "collapsed" || isMobile}
+        hidden={hidden ?? (state !== "collapsed" || isMobile)}
         {...tooltip}
       />
     </Tooltip>

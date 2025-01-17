@@ -1,5 +1,10 @@
 import { Slot } from "@radix-ui/react-slot";
 import React, { forwardRef } from "react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "../Tooltip/Tooltip.jsx";
 
 /**
  * @component Button - Main application component.
@@ -8,9 +13,9 @@ import React, { forwardRef } from "react";
  *
  * @returns {JSX.Element}
  */
-const Button = forwardRef(({ variant, className = "", size = "sm", asChild = false, ...props }, ref ) => {
+const Button = forwardRef(({ variant, className = "", size = "sm", asChild = false, tooltip,...props }, ref ) => {
     const Comp = asChild ? Slot : "button";
-    return (
+    const button = (
       <Comp
         data-size={size}
         data-variant={variant}
@@ -19,6 +24,29 @@ const Button = forwardRef(({ variant, className = "", size = "sm", asChild = fal
         {...props}
       />
     );
+
+    if (!tooltip) {
+        return button;
+    }
+
+    if (typeof tooltip === "string") {
+      tooltip = {
+          children: tooltip,
+      };
+    }
+
+    return (
+      <Tooltip>
+        <TooltipTrigger asChild>
+            {button}
+        </TooltipTrigger>
+        <TooltipContent
+            side="bottom"
+            align="center"
+            {...tooltip}
+        />
+      </Tooltip>
+    )
   },
 );
 Button.displayName = "Button";

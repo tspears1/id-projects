@@ -2,7 +2,7 @@
 import React from "react";
 
 // Components ===============================
-import { AssetCard } from "../../molecules/AssetCard/AssetCard.jsx";
+import { AssetCard } from "../AssetCard/AssetCard.jsx";
 
 /**
  * @component Sprint - Main application component.

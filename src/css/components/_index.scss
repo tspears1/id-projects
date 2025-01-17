@@ -20,9 +20,11 @@
 @layer molecules {
    @layer nav-phases { @include meta.load-css('../../js/components/molecules/NavPhases/NavPhases.style.scss'); }
    @layer project-switcher { @include meta.load-css('../../js/components/molecules/ProjectSwitcher/ProjectSwitcher.style.scss'); }
+   @layer style-toggle { @include meta.load-css('../../js/components/molecules/StyleToggle/StyleToggle.style.scss'); }
 }
 
 @layer organisms {
    @layer app-sidebar { @include meta.load-css('../../js/components/organisms/AppSidebar/AppSidebar.style.scss'); }
+   @layer sprint-grid { @include meta.load-css('../../js/components/organisms/SprintGrid/SprintGrid.style.scss'); }
    @layer toolbar { @include meta.load-css('../../js/components/organisms/Toolbar/Toolbar.style.scss'); }
 }

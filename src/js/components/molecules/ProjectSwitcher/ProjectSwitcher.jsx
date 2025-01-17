@@ -47,6 +47,7 @@ const ProjectSwitcher = ({ projectData }) => {
                      <SidebarMenuButton
                         size="lg"
                         className="project-switcher__trigger"
+                        tooltip="Switch Project"
                      >
                         <div className="project-switcher__trigger-icon">
                            <Icon icon={activeProject.icon ??icon} className="project-switcher__trigger-icon-svg" />

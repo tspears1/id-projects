@@ -57,7 +57,7 @@ const NavPhases = ({ phases, ...props }) => {
                         { phase.icon && <Icon icon={phase.icon} className="nav-phases__menu-button-icon" /> }
                         <span>{phase.label}</span>
                         <div className="nav-phases__menu-button-radio-icon">
-                           <Icon icon='circle' weight='bold' />
+                           <Icon icon='circle' weight={ activePhase?.value === phase.value ? 'fill' : 'bold' } />
                         </div>
                      </label>
                   </SidebarMenuButton>
