@@ -1,0 +1,9 @@
+.sprint {
+   border: 2px solid hotpink;
+   padding: 0.75rem;
+
+   &__list {
+      display: grid;
+      gap: 0.5rem;
+   }
+}

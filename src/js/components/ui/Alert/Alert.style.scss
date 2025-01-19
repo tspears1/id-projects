@@ -1,0 +1,56 @@
+.alert {
+   align-content: start;
+	background-color: var(--alert-background-color, hsl(var(--color-background)));
+	border-radius: var(--border-size-5);
+	border: var(--border-size-1) solid var(--alert-border-color, hsl(var(--color-border) / 0.5));
+	color: var(--alert-color, hsl(var(--color-foreground)));
+   display: grid;
+   gap: var(--shim-3) var(--size-fluid-3);
+	font-size: var(--font-size-sm);
+	inline-size: 100%;
+	line-height: var(--leading-snug);
+   padding-block: var(--size-2);
+   padding-inline: var(--size-1);
+	position: relative;
+
+   &:has(.icon) {
+      grid-template-columns: max-content 1fr;
+      grid-auto-rows: auto;
+   }
+
+   & > .icon {
+      --icon-color: var(--alert-icon-color, hsl(var(--color-foreground)));
+      --icon-size: var(--font-size-xl);
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 2;
+   }
+
+   &[variant="destructive"] {
+      --alert-border-color: hsl(var(--color-destructive) / 0.5);
+      --alert-icon-color: hsl(var(--color-destructive));
+      --alert-title-color: hsl(var(--color-destructive-foreground));
+      --alert-description-color: hsl(var(--color-destructive-foreground));
+   }
+
+   &[variant="warning"] {
+      --alert-background-color: hsl(var(--color-warning-foreground) / 0.2);
+      --alert-border-color: hsl(var(--color-warning) / 0.8);
+      --alert-icon-color: hsl(var(--color-warning));
+      --alert-title-color: hsl(var(--color-warning));
+      --alert-description-color: hsl(var(--color-warning) / 0.8);
+   }
+
+   &__title {
+      color: var(--alert-title-color, inherit);
+      font-size: var(--font-size-md);
+      font-weight: var(--font-weight-medium);
+      letter-spacing: var(--tracking-tight);
+      line-height: var(--leading-none);
+   }
+
+   &__description {
+      color: var(--alert-description-color, inherit);
+      line-height: var(--leading-normal);
+   }
+}
+

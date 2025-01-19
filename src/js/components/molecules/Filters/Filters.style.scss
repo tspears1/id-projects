@@ -1,0 +1,38 @@
+.filters {
+
+   &__fieldset {
+      border: 0;
+      margin: 0;
+      min-inline-size: 0;
+      padding: 0;
+   }
+
+   &__group {
+      display: grid;
+      gap: var(--shim-4);
+      grid-template-columns: repeat(2, max-content);
+   }
+
+   &__filter {
+      position: relative;
+
+      &[data-active='true'] {
+         --button-background-color: hsl(var(--color-sidebar-primary) / 0.1);
+         --button-background-color--hover: hsl(var(--color-sidebar-primary) / 0.1);
+         --button-border-color: hsl(var(--color-sidebar-primary) / 0.8);
+         --button-border-color--hover: hsl(var(--color-sidebar-primary) / 0.8);
+         cursor: default;
+      }
+
+      input {
+         appearance: none;
+         inset: 0;
+         pointer-events: none;
+         position: absolute;
+      }
+
+      .icon {
+         pointer-events: none;
+      }
+   }
+}

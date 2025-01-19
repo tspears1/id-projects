@@ -1,6 +1,7 @@
 .project-switcher {
 
    &__trigger {
+      border: none;
 
       &[data-state="open"] {
          background-color: hsl(var(--color-sidebar-accent));

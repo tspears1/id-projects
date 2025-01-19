@@ -2,6 +2,7 @@
 @layer ui, atoms, molecules, organisms;
 
 @layer ui {
+   @layer alert { @include meta.load-css('../../js/components/ui/Alert/Alert.style.scss'); }
    @layer breadcrumbs { @include meta.load-css('../../js/components/ui/Breadcrumbs/Breadcrumbs.style.scss'); }
    @layer button { @include meta.load-css('../../js/components/ui/Button/Button.style.scss'); }
    @layer dropdownMenu { @include meta.load-css('../../js/components/ui/DropdownMenu/DropdownMenu.style.scss'); }
@@ -18,8 +19,11 @@
 }
 
 @layer molecules {
+   @layer asset-card { @include meta.load-css('../../js/components/molecules/AssetCard/AssetCard.style.scss'); }
+   @layer filters { @include meta.load-css('../../js/components/molecules/Filters/Filters.style.scss'); }
    @layer nav-phases { @include meta.load-css('../../js/components/molecules/NavPhases/NavPhases.style.scss'); }
    @layer project-switcher { @include meta.load-css('../../js/components/molecules/ProjectSwitcher/ProjectSwitcher.style.scss'); }
+   @layer sprint { @include meta.load-css('../../js/components/molecules/Sprint/Sprint.style.scss'); }
    @layer style-toggle { @include meta.load-css('../../js/components/molecules/StyleToggle/StyleToggle.style.scss'); }
 }
 

@@ -4,13 +4,19 @@
 import React from "react";
 
 // Components ===============================
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbSeparator } from "../../ui/Breadcrumbs/Breadcrumbs.jsx";
-import { BreadcrumbLink } from "../../ui/Breadcrumbs/Breadcrumbs.jsx";
-import { BreadcrumbPage } from "../../ui/Breadcrumbs/Breadcrumbs.jsx";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbSeparator,
+  BreadcrumbPage
+} from "../../ui/Breadcrumbs/Breadcrumbs.jsx";
 import { SidebarTrigger } from "../../ui/Sidebar/Sidebar.jsx";
 import { Separator } from "../../ui/Separator/Separator.jsx";
-import { Icon } from "../../atoms/Icon/Icon.jsx";
-import { Button } from "../../ui/Button/Button.jsx";
+import { Filters } from "../../molecules/Filters/Filters.jsx";
+
+// Context ==================================
+import { useStore } from "../../../context/store/useStore.js";
 
 // Toolbar ==================================
 /**
@@ -21,35 +27,37 @@ import { Button } from "../../ui/Button/Button.jsx";
  * @returns {JSX.Element}
  */
 const Toolbar = () => {
+  const { activeProject, activePhase } = useStore();
 
   return (
     <header className="toolbar">
       <div className="toolbar__container">
         <SidebarTrigger className="toolbar__trigger" />
         <Separator orientation="vertical" />
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">
-                Projects
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>
-                Sprints
-              </BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-        <div className='layout-filter' style={{ display: 'flex', gap: 'var(--shim-2)' }}>
-          <Button variant='ghost' size='icon' tooltip='Table View'>
-            <Icon icon='table' />
-          </Button>
-          <Button variant='ghost' size='icon' tooltip='Grid View'>
-            <Icon icon='squares-four' />
-          </Button>
-        </div>
+        { (activeProject || activePhase) &&
+          <Breadcrumb className="toolbar__breadcrumb">
+            <BreadcrumbList>
+              { activeProject &&
+                <>
+                  <BreadcrumbItem>
+                    <BreadcrumbPage>
+                      { activeProject.title }
+                    </BreadcrumbPage>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                </>
+              }
+              { activePhase &&
+                <BreadcrumbItem>
+                  <BreadcrumbPage>
+                    { activePhase.label }
+                  </BreadcrumbPage>
+                </BreadcrumbItem>
+              }
+            </BreadcrumbList>
+          </Breadcrumb>
+        }
+        <Filters />
       </div>
     </header>
   );

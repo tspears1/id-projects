@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // React ====================================
-import { useState } from "react";
+import { useMemo, useEffect } from "react";
 
 // Components ===============================
 import {
@@ -20,6 +20,7 @@ import {
 
 // Context ==================================
 import { useSidebar } from "../../../context/sidebar/useSidebar.js";
+import { useStore } from "../../../context/store/useStore.js";
 
 /**
  * @component ProjectSwitcher - Main application component.
@@ -31,12 +32,17 @@ import { useSidebar } from "../../../context/sidebar/useSidebar.js";
 const ProjectSwitcher = ({ projectData }) => {
    const { selected, icon, projects } = projectData;
    const { isMobile } = useSidebar();
+   const { activeProject, setActiveProject } = useStore();
 
-   const defaultProject = projects.find((project) => project.slug === selected)
+   useEffect(() => {
+      if (activeProject) { return }
+      const defaultProject = projects.find((project) => project.slug === selected)
+      setActiveProject(defaultProject);
+   }, [])
 
-   const [activeProject, setActiveProject] = useState(defaultProject);
+   const filteredProjects = useMemo(() => projects.filter((p) => p.archived === false), [projects])
 
-   const filteredProjects = projects.filter((p) => p.archived === false)
+   if (!activeProject) { return null }
 
    return (
       <SidebarMenu className="project-switcher">
