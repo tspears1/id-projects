@@ -1,3 +1,18 @@
 body {
   font-family: "Fliege mono", monospace;
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:where(:not([class])) {
+    &:is(:hover, :focus-visible) {
+      text-decoration: underline;
+    }
+  }
+
+  &:is(:hover, :focus-visible) {
+    color: inherit;
+  }
+}

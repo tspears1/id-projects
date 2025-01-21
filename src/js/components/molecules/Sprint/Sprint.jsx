@@ -11,7 +11,7 @@ import { AssetCard } from "../AssetCard/AssetCard.jsx";
  *
  * @returns {JSX.Element}
  */
-const Sprint = ({ sprint }) => {
+const Sprint = ({ sprint, layout }) => {
   const { title, date, assetList } = sprint;
   const _date = new Date(date).toLocaleDateString("en-US", {
     month: "long",
@@ -24,11 +24,30 @@ const Sprint = ({ sprint }) => {
         <h3 className="sprint__title">{title}</h3>
         <div className="sprint__date">{_date}</div>
       </div>
-      <ul className="sprint__list" data-sprint-display="table">
-        <li className="sprint__list-header">Table heading</li>
+      <ul
+        className="sprint__list"
+        role={layout === 'table' ? 'table' : null}
+      >
+        <li className="sprint__list-header" role={layout === 'table' ? 'row' : null}>
+          <div className='sprint__list-header-cell' role={layout === 'table' ? 'columnheader' : null}>
+            Title
+          </div>
+          <div className='sprint__list-header-cell' role={layout === 'table' ? 'columnheader' : null}>
+            Description
+          </div>
+          <div className='sprint__list-header-cell' role={layout === 'table' ? 'columnheader' : null}>
+            Last Modified
+          </div>
+          <div className='sprint__list-header-cell' role={layout === 'table' ? 'columnheader' : null}>
+            Status
+          </div>
+          <div className='sprint__list-header-cell' role={layout === 'table' ? 'columnheader' : null}>
+            File Type
+          </div>
+        </li>
         {assetList.map((asset, index) => (
           <li className="sprint__list-item" key={`asset-${index}`}>
-            <AssetCard asset={asset} />
+            <AssetCard asset={asset} layout={layout} />
           </li>
         ))}
       </ul>

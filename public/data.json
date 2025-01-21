@@ -139,27 +139,33 @@
       "status": [
          {
             "value": "shared",
-            "label": "Shared"
+            "label": "Shared",
+            "color": "neutral"
          },
          {
             "value": "reviewed",
-            "label": "Reviewed"
+            "label": "Reviewed",
+            "color": "highlight"
          },
          {
             "value": "approved",
-            "label": "Approved"
+            "label": "Approved",
+            "color": "info"
          },
          {
             "value": "rejected",
-            "label": "Rejected"
+            "label": "Rejected",
+            "color": "destructive"
          },
          {
             "value": "in-progress",
-            "label": "In Progress"
+            "label": "In Progress",
+            "color": "warning"
          },
          {
             "value": "completed",
-            "label": "Completed"
+            "label": "Completed",
+            "color": "success"
          }
       ],
       "fileTypes": [

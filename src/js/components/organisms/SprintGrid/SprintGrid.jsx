@@ -9,7 +9,7 @@ import { Icon } from "../../atoms/Icon/Icon.jsx";
 import { get } from "../../../utils/objects.js";
 import { Sprint } from "../../molecules/Sprint/Sprint.jsx";
 
-const SprintGrid = ({ sprints, activeProject, activePhase }) => {
+const SprintGrid = ({ sprints, activeProject, activePhase, activeLayout }) => {
 
    // Methods ================================
 
@@ -55,9 +55,10 @@ const SprintGrid = ({ sprints, activeProject, activePhase }) => {
    }, [sprints, activeProject, activePhase, getActiveSprints])
 
    return (
-      <div className="sprint-grid">
+      <div className="sprint-grid" data-layout={activeLayout}>
+         <h2 className="sr-only">Sprints</h2>
          {activeSprints.length > 0 && activeSprints.map((sprint) => (
-            <Sprint key={sprint.slug} sprint={sprint} />
+            <Sprint key={sprint.slug} sprint={sprint} layout={activeLayout} />
          ))}
          {!activeSprints.length > 0 &&
             <Alert variant='warning'>

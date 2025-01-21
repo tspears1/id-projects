@@ -33,18 +33,23 @@
    --color-accent:                         var(--color-blue-800-hsl);
    --color-accent-foreground:              var(--color-blue-100-hsl);
 
-   --color-destructive:                    var(--color-zinc-500-hsl);
-   --color-destructive-foreground:         var(--color-zinc-50-hsl);
-
    --color-border:                         var(--color-surface-2);
    --color-input:                          var(--color-surface-2);
    --color-ring:                           var(--color-zinc-400-hsl);
    --color-shadow:                         var(--color-zinc-950-hsl);
 
-   --color-success:                        var(--color-emerald-950-hsl);
-   --color-success-foreground:             var(--color-emerald-50-hsl);
-   --color-warning:                        var(--color-orange-950-hsl);
-   --color-warning-foreground:             var(--color-orange-300-hsl);
+   --color-success:                        var(--color-emerald-300-hsl);
+   --color-success-foreground:             var(--color-emerald-600-hsl);
+   --color-warning:                        var(--color-amber-300-hsl);
+   --color-warning-foreground:             var(--color-amber-700-hsl);
+   --color-destructive:                    var(--color-red-600-hsl);
+   --color-destructive-foreground:         var(--color-red-800-hsl);
+   --color-highlight:                      var(--color-purple-300-hsl);
+   --color-highlight-foreground:           var(--color-purple-700-hsl);
+   --color-info:                           var(--color-sky-300-hsl);
+   --color-info-foreground:                var(--color-sky-600-hsl);
+   --color-neutral:                        var(--color-neutral-400-hsl);
+   --color-neutral-foreground:             var(--color-neutral-800-hsl);
 
    --color-sidebar-background:             var(--color-zinc-50-hsl);
    --color-sidebar-foreground:             var(--color-zinc-700-hsl);
@@ -91,18 +96,23 @@
    --color-accent:                         var(--color-pink-400-hsl);
    --color-accent-foreground:              var(--color-pink-700-hsl);
 
-   --color-destructive:                    var(--color-zinc-50-hsl);
-   --color-destructive-foreground:         var(--color-zinc-500-hsl);
-
    --color-border:                         var(--color-surface-2);
    --color-input:                          var(--color-surface-2);
    --color-ring:                           var(--color-zinc-600-hsl);
-   --color-shadow:                         var(--color-zinc-950-hsl);
+   --color-shadow:                         var(--color-zinc-600-hsl);
 
-   --color-success:                        var(--color-emerald-50-hsl);
-   --color-success-foreground:             var(--color-emerald-950-hsl);
-   --color-warning:                        var(--color-orange-300-hsl);
-   --color-warning-foreground:             var(--color-orange-950-hsl);
+   --color-success:                        var(--color-emerald-500-hsl);
+   --color-success-foreground:             var(--color-emerald-200-hsl);
+   --color-warning:                        var(--color-amber-700-hsl);
+   --color-warning-foreground:             var(--color-amber-500-hsl);
+   --color-destructive:                    var(--color-red-800-hsl);
+   --color-destructive-foreground:         var(--color-red-600-hsl);
+   --color-highlight:                      var(--color-purple-700-hsl);
+   --color-highlight-foreground:           var(--color-purple-300-hsl);
+   --color-info:                           var(--color-sky-600-hsl);
+   --color-info-foreground:                var(--color-sky-300-hsl);
+   --color-neutral:                        var(--color-neutral-400-hsl);
+   --color-neutral-foreground:             var(--color-neutral-100-hsl);
 
    --color-sidebar-background:             var(--color-zinc-950-hsl);
    --color-sidebar-foreground:             var(--color-zinc-50-hsl);

@@ -20,3 +20,12 @@
 		}
 	}
 }
+
+.pseudo-link {
+	&::after {
+		content: '';
+		inset: var(--pseudo-link-inset, 0);
+		position: absolute;
+		z-index: var(--pseudo-link-z-index, 1);
+	}
+}

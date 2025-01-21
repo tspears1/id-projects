@@ -2,7 +2,14 @@
    block-size: 100%;
    inline-size: 100%;
    padding: var(--size-fluid-3);
-   display: grid;
-   gap: var(--size-fluid-1);
-   align-content: start;
+
+   &[data-layout='table'] {
+      align-content: start;
+      display: grid;
+      gap: var(--size-fluid-3);
+   }
+
+   &[data-layout='grid'] {
+
+   }
 }

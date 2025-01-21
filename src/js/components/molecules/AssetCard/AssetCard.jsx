@@ -3,11 +3,12 @@
 import React from "react";
 
 // Components ===============================
+import { Badge } from '../../ui/Badge/Badge.jsx';
 import { Button } from '../../ui/Button/Button.jsx';
 import { Icon } from '../../atoms/Icon/Icon.jsx';
 
 // Context ==================================
-import { useStore } from "../../../context/store/useStore.js";
+import { useDatabase } from "../../../context/database/useDatabase.js";
 
 // Utils ====================================
 import { getFileType } from "../../../utils/fileTypes.js";
@@ -19,9 +20,11 @@ import { getFileType } from "../../../utils/fileTypes.js";
  *
  * @returns {JSX.Element}
  */
-const AssetCard = ({ asset, className = "", ...props }) => {
+const AssetCard = ({ asset, layout, className = "", ...props }) => {
 
+  // Format Asset ============================
   const { title, description, lastModified, fileUrl = '', status } = asset;
+
   const { icon, label } = getFileType(fileUrl);
 
   const _lastModified = new Date(lastModified).toLocaleDateString("en-GB", {
@@ -30,26 +33,47 @@ const AssetCard = ({ asset, className = "", ...props }) => {
     year: "numeric",
   });
 
-  const { activeLayout } = useStore();
+  const { taxonomy } = useDatabase();
+
+  // Methods ================================
+  const getStatusVariant = (status) => {
+    if (!taxonomy.status) { return 'neutral' }
+    const _status = taxonomy.status.find((s) => s.value === status)
+    return _status?.color ?? 'neutral'
+  }
 
   return (
     <article className={`asset-card ${className}`} {...props}>
-      { title && <div className="asset-card__title">{title}</div> }
-      { description && <div className="asset-card__description">{description}</div> }
-      { lastModified && <div className="asset-card__last-modified">{_lastModified}</div> }
-      { status && <div className="asset-card__status">{status}</div> }
       <Button
-        className="asset-card__file-url"
-        variant="outline"
-        size='icon-xl'
+        className="asset-card__cell asset-card__title button--reset"
         asChild={true}
-        tooltip={`View ${label}`}
+        variant="naked"
       >
-        <a href={fileUrl} target="_blank" rel="noreferrer">
-          <span className='sr-only'>{label}</span>
-          <Icon icon={icon} className="asset-card__file-url-icon" />
-        </a>
+        <h4>
+          <a
+            className="asset-card__link pseudo-link"
+            href={fileUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`View ${title}`}
+          >
+            {title}
+          </a>
+        </h4>
       </Button>
+      <div className="asset-card__cell asset-card__description">{description}</div>
+      <div className="asset-card__cell asset-card__last-modified">{_lastModified}</div>
+      <div className="asset-card__cell asset-card__status">
+        <Badge variant={getStatusVariant(status)} size="sm" className="asset-card__status-badge">
+          {status}
+        </Badge>
+      </div>
+      <div className="asset-card__cell asset-card__file">
+        <div className="asset-card__file-inner">
+          <Icon icon={icon} className="asset-card__file-icon" />
+          <span className='sr-only'>{label}</span>
+        </div>
+      </div>
     </article>
   );
 };
