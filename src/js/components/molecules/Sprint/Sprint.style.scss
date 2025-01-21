@@ -1,3 +1,5 @@
+@use '../../../../css/abstracts/mixins/breakpoints' as mq;
+
 .sprint {
    $block: &;
 
@@ -98,7 +100,7 @@
       #{$block}__list {
          display: grid;
          gap: var(--size-fluid-1);
-         grid-template-columns: repeat(auto-fill, minmax(20vi, 1fr));
+         grid-template-columns: repeat(auto-fill, minmax(max(30%, 22rem), 1fr));
       }
 
       #{$block}__list-header {
