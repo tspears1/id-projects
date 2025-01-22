@@ -1,15 +1,8 @@
 .sprint-grid {
+   align-content: start;
    block-size: 100%;
+   display: grid;
+   gap: var(--size-fluid-4);
    inline-size: 100%;
    padding: var(--size-fluid-3);
-
-   &[data-layout='table'] {
-      align-content: start;
-      display: grid;
-      gap: var(--size-fluid-3);
-   }
-
-   &[data-layout='grid'] {
-
-   }
 }
