@@ -37,6 +37,7 @@ content:
       - name: url
         label: Website URL
         type: string
+        list: true
       - name: cover
         label: Preview image
         type: image
